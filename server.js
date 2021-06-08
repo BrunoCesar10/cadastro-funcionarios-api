@@ -22,7 +22,7 @@ db.mongoose
   });
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "https://cadastro-funcionarios-api.herokuapp.com:8081"
   };
 
 app.use(cors(corsOptions));
