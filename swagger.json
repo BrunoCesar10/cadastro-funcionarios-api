@@ -1,0 +1,152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Cadastro de Funcionários",
+    "description": "REST API simples para cadastro de funcionários"
+  },
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Funcionários",
+      "description": "API para gerenciamento de funcionários no nosso sistema"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/funcionarios": {
+      "post": {
+        "tags": [
+          "Funcionários"
+        ],
+        "description": "Cria um novo funcionário no sistema",
+        "parameters": [
+          {
+            "name": "matricula",
+            "in": "body",
+            "description": "Matricula do funcionário"
+          },
+          {
+            "name": "nome",
+            "in": "body",
+            "description": "Nome do funcionário"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "description": "E-mail do funcionário"
+          },
+          {
+            "name": "dataDeCadastro",
+            "in": "body",
+            "description": "Data de cadastro do funcionário"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Novo usuário criado"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Funcionários"
+        ],
+        "summary": "Retorna todos os funcionários do sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove todos os funcionários do sistema",
+        "tags": [
+          "Funcionários"
+        ],
+        "responses": {
+          "200": {
+            "description": "Funcionário removido"
+          }
+        }
+      }
+    },
+    "/funcionarios/{matricula}": {
+      "parameters": [
+        {
+          "name": "matricula",
+          "in": "path",
+          "required": true,
+          "description": "Matricula do funcionário a ser requerido",
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "summary": "Remove um funcionário do sistema por meio da matrícula",
+        "tags": [
+          "Funcionários"
+        ],
+        "responses": {
+          "200": {
+            "description": "Funcionário removido"
+          }
+        }
+      },
+      "put": {
+        "summary": "Remove um funcionário do sistema por meio da matrícula",
+        "tags": [
+          "Funcionários"
+        ],
+        "parameters": [
+          {
+            "name": "funcionario",
+            "in": "body",
+            "description": "Funcionário com as suas definições atualizadas"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Funcionário atualizado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Funcionário": {
+      "required": [
+        "matricula",
+        "nome",
+        "email",
+        "dataDeCadastro"
+      ],
+      "properties": {
+        "matricula": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "nome": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "dataDeCadastro": {
+          "type": "string"
+        }      
+      }
+    }   
+  }
+}
