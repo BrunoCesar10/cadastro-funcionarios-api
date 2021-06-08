@@ -1,3 +1,3 @@
 module.exports = {
-    url: "mongodb://https://cadastro-funcionarios-api.herokuapp.com:27017/funcionarios_db"
+    url: "mongodb+srv://BrunoCesar10:admin@funcionarios-east.svns7.mongodb.net/funcionarios-east?retryWrites=true&w=majority"
   };
